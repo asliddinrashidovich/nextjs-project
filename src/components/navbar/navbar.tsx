@@ -39,9 +39,9 @@ function Navbar({ window }: Props) {
     );
     const container = window !== undefined ? () => window().document.body : undefined;
   return (
-    <Box  sx={{display: 'flex' }}>
+    <Box  sx={{display: 'flex', height:'10vh'}}>
         <CssBaseline />
-        <AppBar component="nav">
+        <AppBar sx={{height: '10vh', backgroundColor: '#141414', color:  '#fff', display: 'flex', justifyContent: 'center'}} component="nav">
             <Toolbar>
                 <IconButton
                     color="inherit"

@@ -7,7 +7,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 
 function Footer() {
   return (
-    <Box padding={'20px'} sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'primary.main', color: 'white'}}>
+    <Box padding={'20px'} sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#141414', color:  '#fff'}}>
         <Typography>
          © {format(new Date(), 'yyyy')} All Right Reserved
         </Typography>
