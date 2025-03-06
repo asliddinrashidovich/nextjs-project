@@ -5,36 +5,36 @@ import { format } from 'date-fns';
 
 function Sidebar() {
   return (
-    <Box sx={{width: '30%'}}>
+    <Box sx={{width: {xs: '100%', md: '30%'}}}>
         <Box position={'sticky'} top={'100px'} sx={{transition: 'all ease 0.3s'}}>
-        <Box border={'2px solid gray'} borderRadius={'10px'} padding={'20px'}>
-                <Typography variant="h5" >
-                    Latest Blog
-                </Typography>
-                <Box sx={{display: 'flex', alignItems: 'start', flexDirection:'column', marginTop: '20px'}}>
-                    {data.map(item => (
-                        <Box key={item.image} width={'100%'} marginTop={'20px'}>
-                            <Box sx={{display: 'flex', alignItems:'center', gap: '10px'}}>
-                                <Image style={{borderRadius: '10px', objectFit: 'cover'}} src={item.image} alt={item.title} width={100} height={100}/>
-                                <Box>
-                                    <Typography variant="body1">
-                                        {item.title}
-                                    </Typography>
-                                    <Box sx={{display: 'flex', gap: '15px', alignItems: 'center', marginTop: '20px'}}>
-                                    <Avatar src={item.author.image} sx={{background: 'white'}} alt={item.author.name}/>
+            <Box border={'2px solid gray'} borderRadius={'10px'} padding={'20px'} marginTop={'20px'}>
+                    <Typography variant="h5" >
+                        Latest Blog
+                    </Typography>
+                    <Box sx={{display: 'flex', alignItems: 'start', flexDirection:'column', marginTop: '20px'}}>
+                        {data.map(item => (
+                            <Box key={item.image} width={'100%'} marginTop={'20px'}>
+                                <Box sx={{display: 'flex', alignItems:'center', gap: '10px'}}>
+                                    <Image style={{borderRadius: '10px', objectFit: 'cover'}} src={item.image} alt={item.title} width={100} height={100}/>
                                     <Box>
-                                        <Typography variant="body2">
-                                            {item.author.name}
+                                        <Typography variant="body1">
+                                            {item.title}
                                         </Typography>
-                                        <Box sx={{opacity:'0.5', fontSize: '14px'}}>{format(new Date(), 'dd, MMM, yyyy')}</Box>
-                                    </Box>
+                                        <Box sx={{display: 'flex', gap: '15px', alignItems: 'center', marginTop: '20px'}}>
+                                        <Avatar src={item.author.image} sx={{background: 'white'}} alt={item.author.name}/>
+                                        <Box>
+                                            <Typography variant="body2">
+                                                {item.author.name}
+                                            </Typography>
+                                            <Box sx={{opacity:'0.5', fontSize: '14px'}}>{format(new Date(), 'dd, MMM, yyyy')}</Box>
+                                        </Box>
+                                        </Box>
                                     </Box>
                                 </Box>
+                                <Divider sx={{width: '100%', marginTop:'20px'}}/>
                             </Box>
-                            <Divider sx={{width: '100%', marginTop:'20px'}}/>
-                        </Box>
-                    ))}
-                </Box>
+                        ))}
+                    </Box>
             </Box>
             <Box border={'2px solid gray'} borderRadius={'10px'} padding={'20px'}  marginTop={'20px'}>
                 <Typography variant="h5" >
