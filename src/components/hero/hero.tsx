@@ -15,7 +15,7 @@ const responsive = {
   
   function Hero() {
     return (
-      <Box height={'70vh'} sx={{backgroundColor: 'red'}}>
+      <Box height={'70vh'}>
         <Carousel responsive={responsive}>
             {data.map(item => (
               <Box key={item.image} >
@@ -66,3 +66,4 @@ const data = [
     },
   },
 ];
+

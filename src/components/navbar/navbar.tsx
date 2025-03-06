@@ -50,14 +50,14 @@ function Navbar({ window }: Props) {
                     onClick={handleDrawerToggle}
                     sx={{ mr: 2, display: { sm: 'none' } }}
                 >
-                    <MenuIcon />
+                    <MenuIcon sx={{cursor: 'pointer'}}/>
                 </IconButton>
                 <Typography
                     variant="h6"
                     component="div"
                     sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                 >
-                    <AdbIcon/>
+                    <AdbIcon sx={{cursor: 'pointer'}}/>
                 </Typography>
                 <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                     {navItems.map((item) => (

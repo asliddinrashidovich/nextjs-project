@@ -7,7 +7,7 @@ function Layout({children}: LayoutProps) {
   return (
     <>
         <Navbar/>
-        <Box height={'100vh'}>{children}</Box>
+        <Box height={'100%'}>{children}</Box>
         <Footer/>
     </>
   )
