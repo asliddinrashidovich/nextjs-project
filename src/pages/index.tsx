@@ -1,15 +1,15 @@
 import { Content, Hero, Sidebar } from '@/components'
+import { BlogsType } from '@/interfaces/blog.interface'
 import Layout from '@/layout/layout'
 import { BlogService } from '@/service/blogservice'
 import { Box } from '@mui/material'
+import { GetServerSideProps } from 'next'
 import React from 'react'
-import { useEffect } from 'react'
 
-function Index() {
+function Index({blogs}: HomePageProps) {
+  console.log(blogs)
 
-  useEffect(() => {
-    BlogService.getAllBlogs().then(data => console.log(data))
-  }, [])
+
   return (
     <Layout>
       <Hero/>
@@ -22,3 +22,16 @@ function Index() {
 }
 
 export default Index
+
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async () =>{
+  const blogs = await BlogService.getAllBlogs()
+  return {
+    props: {
+      blogs
+    }
+  }
+}
+
+interface HomePageProps {
+  blogs: BlogsType[]
+}
