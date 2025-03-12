@@ -44,7 +44,7 @@ function Sidebar({latest, category}: SidebarProps) {
                 </Typography>
                 <Box sx={{display: 'flex', alignItems: 'start', flexDirection:'column', marginTop: '20px'}}>
                     {category.map(item => (
-                        <Box  key={item.label} sx={{ width:'100%'}}>
+                        <Box onClick={() => router.push(`/category/${item.slug}`)} key={item.label} sx={{ width:'100%'}}>
                             <Button sx={{height: '50px', width:'100%',justifyContent: 'flex-start'}}>
                                 {item.label}
                             </Button>
