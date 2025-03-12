@@ -1,8 +1,8 @@
 import { BlogsType } from "@/interfaces/blog.interface"
+import { CategoryType } from "@/interfaces/category.interface"
 import { request, gql } from "graphql-request"
 
 const graphqlAPI = process.env.NEXT_PUBLIC_HIGHRAPH_ENDPOINT as string
-
 
 export const BlogService = {
     async getAllBlogs() {
@@ -14,7 +14,10 @@ export const BlogService = {
                     title
                     id
                     image {
-                    url
+                        url
+                    }
+                    description {
+                        text
                     }
                     author {
                     avatart {
@@ -23,13 +26,51 @@ export const BlogService = {
                     avatar
                     }
                     category {
-                    label
-                    slug
+                        label
+                        slug
                     }
                 }
                 }
         `
         const result = await request<{blogs: BlogsType[]}>(graphqlAPI, query)
         return result.blogs
+    },
+
+    async getLatestBlogs() {
+        const query = gql`
+            query LatestBlog {
+                blogs(last: 2) {
+                    slug
+                    title
+                    id
+                    author {
+                    avatart {
+                        url
+                    }
+                    avatar
+                    }
+                    createdAt
+                    image {
+                        url
+                    }
+                }
+            }
+        `
+        const result = await request<{blogs: BlogsType[]}>(graphqlAPI, query)
+        return result.blogs
+    },
+
+    async getCategory() {
+        const query = gql`
+            query Category {
+                categories {
+                    label
+                    slug
+                }
+            }
+        `
+
+        const result = await request<{categories: CategoryType[]}>(graphqlAPI, query)
+        return result.categories
     }
 }

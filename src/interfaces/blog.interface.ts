@@ -6,6 +6,9 @@ export interface BlogsType {
     image: {
       url: string
     },
+    description: {
+        text: string
+    },
     author: {
         avatart: {
             url:string,
@@ -16,4 +19,5 @@ export interface BlogsType {
         label: string,
         slug: string
     }
+    createdAt: string
 }
