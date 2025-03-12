@@ -2,8 +2,10 @@ import { Avatar, Box, Button, Divider, Typography } from "@mui/material"
 import Image from "next/image";
 import { format } from 'date-fns';
 import { SidebarProps } from "./sidebar.interface";
+import { useRouter } from "next/router";
 
 function Sidebar({latest, category}: SidebarProps) {
+    const router = useRouter()
   return (
     <Box sx={{width: {xs: '100%', md: '30%'}}}>
         <Box position={'sticky'} top={'100px'} sx={{transition: 'all ease 0.3s'}}>
@@ -13,7 +15,7 @@ function Sidebar({latest, category}: SidebarProps) {
                     </Typography>
                     <Box sx={{display: 'flex', alignItems: 'start', flexDirection:'column', marginTop: '20px'}}>
                         {latest.map(item => (
-                            <Box key={item.title} width={'100%'} marginTop={'20px'}>
+                            <Box onClick={() => router.push(`/blog/${item.slug}`)} sx={{cursor: 'pointer'}} key={item.title} width={'100%'} marginTop={'20px'}>
                                 <Box sx={{display: 'flex', alignItems:'center', gap: '10px'}}>
                                     <Image style={{borderRadius: '10px', objectFit: 'cover'}} src={item.image.url} alt={item.title} width={100} height={100}/>
                                     <Box>

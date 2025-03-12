@@ -8,6 +8,7 @@ export interface BlogsType {
     },
     description: {
         text: string
+        html: string
     },
     author: {
         avatart: {

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { format } from 'date-fns';
 import { HeroProps } from './hero.interface';
 import { readingTime } from '@/helpers/timeRead';
+import { useRouter } from 'next/router';
 
 
 
@@ -16,11 +17,12 @@ const responsive = {
   };
   
   function Hero({blogs}: HeroProps) {
+    const router = useRouter()
     return (
       <Box height={'70vh'}>
         <Carousel responsive={responsive}>
             {blogs.map(item => (
-              <Box key={item.title} >
+              <Box key={item.title} onClick={() => router.push(`/blog/${item.slug}`)} sx={{cursor: 'pointer'}}>
                 <Box sx={{position: 'relative', width: '100%', height: '70vh'}}>
                   <Image src={item.image.url} alt={item.title} style={{objectFit: 'cover',}} fill/>
                   <Box sx={{position: 'absolute', top: '0', left: '0', right: '0', bottom:'0', width: '100%', height:'100%', backgroundColor: 'rgba(0, 0, 0, 0.6)'}}/>
