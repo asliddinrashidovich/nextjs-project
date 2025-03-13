@@ -19,6 +19,7 @@
     "graphql": "^16.10.0",
     "graphql-request": "^7.1.2",
     "next": "15.2.1",
+    "nprogress": "^0.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-multi-carousel": "^2.8.5"
@@ -27,6 +28,7 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nprogress": "^0.2.3",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
