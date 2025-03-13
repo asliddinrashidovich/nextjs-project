@@ -11,8 +11,8 @@ function Category({category}: CategoryBlog) {
   return (
     <SEO metaTitle="All Categories">
       <Layout>
-        <Box width={{xs: '100%', md: '80%'}} height={{xs: '30vh', md: '50vh'}} marginTop={'10vh'} borderRadius={'8px'} marginX={'auto'} sx={{justifyContent:'center', flexDirection: 'column', gap: '20px', backgroundColor: 'black', display: 'flex', alignItems: 'center'}}>
-          <Typography  variant="h3" fontFamily={'cursive'}>All Categories</Typography>
+        <Box  width={{xs: '100%', md: '80%'}}  height={{xs: '30vh', md: '50vh'}} marginTop={'10vh'} borderRadius={'8px'} marginX={'auto'} sx={{justifyContent:'center', flexDirection: 'column', gap: '20px', backgroundColor: 'black', display: 'flex', alignItems: 'center'}}>
+          <Typography   variant="h3" fontFamily={'cursive'}>All Categories</Typography>
           <ButtonGroup variant="contained" aria-label="Basic button group">
             {category.map(item => (
               <Button onClick={() => router.push(`/category/${item.slug}`)} key={item.label}>

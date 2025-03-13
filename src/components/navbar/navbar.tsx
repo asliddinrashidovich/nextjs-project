@@ -3,8 +3,8 @@ import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, List, Li
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import AdbIcon from '@mui/icons-material/Adb';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 interface Props {
     window?: () => Window;
@@ -22,8 +22,8 @@ function Navbar({ window }: Props) {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Box sx={{display: 'flex', justifyContent: 'space-between', paddingX: '20px', alignItems: 'center'}}>
-                <Typography variant="h6" sx={{ my: 2 }}>
-                    <AdbIcon/>
+                <Typography variant="h6"  onClick={() => router.push('/')} sx={{ my: 2, cursor:'pointer'}}>
+                    <Image src={'https://static-00.iconduck.com/assets.00/nextjs-icon-1024x1024-5et230l7.png'} alt='header logo' width={30} height={30}/>
                 </Typography>
                 <CloseIcon sx={{cursor: "pointer"}}/>
             </Box>
@@ -41,9 +41,9 @@ function Navbar({ window }: Props) {
     );
     const container = window !== undefined ? () => window().document.body : undefined;
   return (
-    <Box  sx={{display: 'flex', height:'10vh'}}>
+    <Box  sx={{display: 'flex', }}>
         <CssBaseline />
-        <AppBar sx={{height: '10vh', backgroundColor: '#141414', color:  '#fff', display: 'flex', justifyContent: 'center'}} component="nav">
+        <AppBar sx={{ backgroundColor: '#141414', color:  '#fff', display: 'flex', justifyContent: 'center'}} component="nav">
             <Toolbar>
                 <IconButton
                     color="inherit"
@@ -54,12 +54,13 @@ function Navbar({ window }: Props) {
                 >
                     <MenuIcon sx={{cursor: 'pointer'}}/>
                 </IconButton>
-                <Typography
+                <Typography onClick={() => router.push('/')}
                     variant="h6"
                     component="div"
-                    sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                    sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } , alignItems: 'center', gap:'10px', cursor: 'pointer'}}
                 >
-                    <AdbIcon sx={{cursor: 'pointer'}}/>
+                    <Image src={'https://static-00.iconduck.com/assets.00/nextjs-icon-1024x1024-5et230l7.png'} alt='header logo' width={30} height={30}/>
+                    <Typography variant='h6' sx={{fontWeight: '100', fontFamily: 'fantasy'}}>Next Blogs</Typography>
                 </Typography>
                 <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                     {navItems.map((item) => (
