@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useRouter } from 'next/router';
 
 interface Props {
     window?: () => Window;
@@ -11,6 +12,7 @@ interface Props {
 
 function Navbar({ window }: Props) {
     const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+    const router = useRouter()
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -61,7 +63,7 @@ function Navbar({ window }: Props) {
                 </Typography>
                 <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                     {navItems.map((item) => (
-                    <Button  key={item.route} sx={{ color: '#fff' }}>
+                    <Button onClick={() => router.push(item.route)}   key={item.route} sx={{ color: '#fff' }}>
                         {item.label}
                     </Button>
                     ))}

@@ -8,7 +8,7 @@ function Content({blogs}: ContentProps) {
   const router = useRouter()
 
   return (
-    <Box sx={{width: {xs: '100%', md: '70%'}}} height={'200vh'} > 
+    <Box sx={{width: {xs: '100%', md: '70%'}}} > 
         {blogs.map(item => (
           <Box key={item.id} sx={{backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: '8px', width: '100%', padding: '20px',cursor: 'pointer'}} 
           onClick={() => router.push(`/blog/${item.slug}`)}>
@@ -39,24 +39,3 @@ function Content({blogs}: ContentProps) {
 
 export default Content
 
-// const data = [
-//   {
-//     image: "https://media.graphassets.com/MxJZhmooRRuudoErkQ38",
-//     title: "Technical SEO with Hygraph",
-//     excerpt: "Get started with your SEO implementation when using a Headless CMS",
-//     author: {
-//       name: "Asliddin Norboyev",
-//       image: "https://www.asliddinnorboyev.uz/images/hero/hero_image.png",
-//     },
-//   },
-//   {
-//     image: "https://media.graphassets.com/bh3K2NNtTHCN260Xfq9h",
-//     title: "Union Types and Sortable Relations with Hygraph",
-//     excerpt:
-//       "Learn more about Polymorphic Relations and Sortable Relations with Hygraph",
-//     author: {
-//       name: "Asliddin Norboyev",
-//       image: "https://www.asliddinnorboyev.uz/images/hero/hero_image.png",
-//     },
-//   },
-// ];
